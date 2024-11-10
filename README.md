@@ -1,12 +1,25 @@
-# Welcome to Remix!
+# Remix + Hono Starter for Node.js
 
-- 📖 [Remix docs](https://remix.run/docs)
+Node.js 上で Hono と Remix を利用するためのスターターテンプレートです。
+
+以下の要素を含みます。
+
+- [x] [Remix](https://remix.run/docs)
+- [x] [Hono](https://hono.dev/docs)
+- [x] TypeScript
+- [ ] Tailwind CSS
+- [ ] ESLint
+- [ ] Prettier
+- [ ] Vitest
+- [ ] Dockerfile
 
 ## Development
 
 Run the dev server:
 
-```shellscript
+```sh
+# public/ にあるファイルを利用するためには一度ビルドする必要がある
+npm run build
 npm run dev
 ```
 
@@ -26,15 +39,7 @@ npm start
 
 Now you'll need to pick a host to deploy it to.
 
-### DIY
+## 参考
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+- https://github.com/JfrAziz/remix
+- https://github.com/sergiodxa/remix-hono
