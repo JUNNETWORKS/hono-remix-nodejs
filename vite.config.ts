@@ -1,9 +1,9 @@
+import { defaultOptions } from "@hono/vite-dev-server";
+import { nodeAdapter } from "@hono/vite-dev-server/node";
 import { vitePlugin as remix } from "@remix-run/dev";
+import serverAdapter from 'hono-remix-adapter/vite';
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import serverAdapter from 'hono-remix-adapter/vite';
-import nodeAdapter from "@hono/vite-dev-server/node";
-import { defaultOptions } from "@hono/vite-dev-server"
 
 declare module "@remix-run/node" {
   interface Future {

@@ -2,10 +2,7 @@
 /**
  * Hono が Remix を扱うための Hono 設定
  */
-import { Hono } from "hono";
-import { createRequestHandler, ServerBuild, type AppLoadContext } from "@remix-run/node";
-import { env } from "hono/adapter";
-import { serveStatic } from "@hono/node-server/serve-static";
+import { createRequestHandler, ServerBuild } from "@remix-run/node";
 import { createMiddleware } from "hono/factory";
 
 /**
@@ -50,8 +47,8 @@ export function remixMiddleware() {
     ) as unknown as ServerBuild
 
     const rmx = createMiddleware(async (c) => {
-      let requestHandler = createRequestHandler(build, process.env.NODE_ENV);
-      let loadContext = () => ({ extra: "extra" });
+      const requestHandler = createRequestHandler(build, process.env.NODE_ENV);
+      const loadContext = () => ({ extra: "extra" });
       return await requestHandler(
         c.req.raw,
         loadContext instanceof Promise ? await loadContext : loadContext,

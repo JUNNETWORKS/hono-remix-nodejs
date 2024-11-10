@@ -1,10 +1,10 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
-import { zValidator } from "@hono/zod-validator";
-import { remixMiddleware } from "./middleware/remix";
-import { z } from "zod";
-import { logger } from "hono/logger";
 import { serveStatic } from "@hono/node-server/serve-static";
+import { zValidator } from "@hono/zod-validator";
+import { Hono } from "hono";
+import { logger } from "hono/logger";
+import { z } from "zod";
+import { remixMiddleware } from "./middleware/remix";
 
 const app = new Hono();
 
@@ -26,7 +26,7 @@ const routes = app
   })
   .post("/api/hello", zValidator("json", z.object({ name: z.string() })), async (c) => {
     const { name } = c.req.valid("json");
-    return c.json({ hello: c.body.name });
+    return c.json({ hello: name });
   })
 
 /**

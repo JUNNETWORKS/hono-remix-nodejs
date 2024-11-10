@@ -7,9 +7,9 @@ Node.js 上で Hono と Remix を利用するためのスターターテンプ�
 - [x] [Remix](https://remix.run/docs)
 - [x] [Hono](https://hono.dev/docs)
 - [x] TypeScript
-- [ ] Tailwind CSS
-- [ ] ESLint
-- [ ] Prettier
+- [x] Tailwind CSS
+- [x] ESLint
+- [x] Prettier
 - [ ] Vitest
 - [ ] Dockerfile
 
