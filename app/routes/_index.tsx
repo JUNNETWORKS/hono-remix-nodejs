@@ -1,4 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
+import { hc } from "hono/client";
+import { AppType } from "../../server/index";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,7 +10,16 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+const client = hc<AppType>(import.meta.env.VITE_API_URL);
+
+export const loader = async () => {
+  const res = await client.api.hello.$get();
+  return res.json();
+}
+
 export default function Index() {
+  const { hello } = useLoaderData<typeof loader>();
+  console.log(`response from server: ${JSON.stringify(hello)}`);
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">

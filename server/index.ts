@@ -22,7 +22,7 @@ app.use("*", serveStatic({ root: "./build/client" })) // 1 hour
 
 const routes = app
   .get("/api/hello", async (c) => {
-    return c.json({ hello: "world" });
+    return c.json({ hello: `hello world at ${new Date(Date.now()).toTimeString()}` });
   })
   .post("/api/hello", zValidator("json", z.object({ name: z.string() })), async (c) => {
     const { name } = c.req.valid("json");
@@ -45,7 +45,7 @@ if (process.env.NODE_ENV === "production") {
       port
     },
     (info) => {
-      console.log(`Server running on http://localhost:${port}`);
+      console.log(`Server running on http://localhost:${info.port}`);
     }
   )
 }
