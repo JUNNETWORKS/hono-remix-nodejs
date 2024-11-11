@@ -17,7 +17,11 @@ app.use("/assets/*", serveStatic({ root: "./build/client" }))
 /**
  * Serve public files
  */
-app.use("*", serveStatic({ root: "./build/client" })) // 1 hour
+if (process.env.NODE_ENV === "development") {
+  app.use("*", serveStatic({ root: "./public" })) // 1 hour
+}else{
+  app.use("*", serveStatic({ root: "./build/client" })) // 1 hour
+}
 
 
 const routes = app
